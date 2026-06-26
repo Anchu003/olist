@@ -1,0 +1,18 @@
+# =============================================
+# GitHub Linguist - Language Detection Config
+# =============================================
+
+# Exclude auto-generated HTML EDA reports from language stats
+etapas_del_proyecto/eda_reports/*.html linguist-generated=true
+
+# Exclude Jupyter notebook checkpoints
+**/.ipynb_checkpoints/** linguist-generated=true
+
+# Exclude requirements files from stats
+**/requirements.txt linguist-documentation=true
+
+# Mark source Python files as the primary language
+**/*.py linguist-detectable=true
+
+# Jupyter Notebooks
+**/*.ipynb linguist-detectable=true
