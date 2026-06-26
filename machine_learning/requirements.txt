@@ -1,0 +1,15 @@
+scikit-learn==1.2.0
+altair==4.2.0
+streamlit==1.17.0
+PyMySQL==1.0.2
+pandas==1.5.3
+SQLAlchemy==1.4.46
+statsmodels==0.13.5
+cryptography==39.0.0
+xgboost==1.7.3
+holidays==0.23
+plotly==5.13.0
+numpy==1.23.5
+Pillow==9.3.0
+cmdstanpy==1.1.0
+prophet==1.1.1
