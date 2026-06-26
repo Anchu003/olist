@@ -58,3 +58,9 @@ desktop.ini
 
 # MinIO data
 minio-data/
+
+# Large media files (>100MB, exceeds GitHub limit)
+*.mp4
+*.avi
+*.mov
+*.mkv
