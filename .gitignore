@@ -20,10 +20,13 @@ pip-log.txt
 .ipynb_checkpoints
 *.ipynb
 
-# Environment variables
+# ====== SENSITIVE - NEVER COMMIT ======
+# Real environment file with credentials
 .env
 .env.local
 .env.*.local
+# Keep .env.example (it has no real values)
+!.env.example
 
 # IDE
 .vscode/

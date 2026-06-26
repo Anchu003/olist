@@ -3,12 +3,19 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from sqlalchemy import create_engine
+import os
 
 st.set_page_config(page_title="Marketing & Đánh giá", page_icon="Megaphone", layout="wide")
 
 # Kết nối DB
+_mysql_user = os.getenv("MYSQL_USER", "root")
+_mysql_password = os.getenv("MYSQL_ROOT_PASSWORD")
+_mysql_host = os.getenv("MYSQL_HOST", "mysql")
+_mysql_port = os.getenv("MYSQL_PORT", "3306")
+_mysql_db = os.getenv("MYSQL_DB", "data_warehouse_olist")
+
 engine = create_engine(
-    "mysql+pymysql://root:password@mysql:3306/data_warehouse_olist?charset=utf8mb4"
+    f"mysql+pymysql://{_mysql_user}:{_mysql_password}@{_mysql_host}:{_mysql_port}/{_mysql_db}?charset=utf8mb4"
 )
 
 st.title("Marketing & Đánh giá Khách hàng")

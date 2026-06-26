@@ -2,6 +2,7 @@ import streamlit as st
 from sqlalchemy import create_engine
 import pandas as pd
 import plotly.express as px
+import os
 
 st.set_page_config(page_title="KPIs", page_icon="🧮", layout="wide")
 
@@ -16,8 +17,14 @@ st.sidebar.write(
 )
 
 # ====== KẾT NỐI DATABASE ======
+_mysql_user = os.getenv("MYSQL_USER", "root")
+_mysql_password = os.getenv("MYSQL_ROOT_PASSWORD")
+_mysql_host = os.getenv("MYSQL_HOST", "mysql")
+_mysql_port = os.getenv("MYSQL_PORT", "3306")
+_mysql_db = os.getenv("MYSQL_DB", "data_warehouse_olist")
+
 engine = create_engine(
-    "mysql+pymysql://root:password@mysql:3306/data_warehouse_olist?charset=utf8mb4"
+    f"mysql+pymysql://{_mysql_user}:{_mysql_password}@{_mysql_host}:{_mysql_port}/{_mysql_db}?charset=utf8mb4"
 )
 
 # ====== KPI 1️⃣ - Biến động phần trăm khối lượng bán hàng ======

@@ -21,14 +21,20 @@ from etl_module import (
 )
 
 client = Minio(
-    endpoint="minio:9000",
-    access_key="root",
-    secret_key="password",
+    endpoint=os.getenv("MINIO_ENDPOINT", "minio:9000"),
+    access_key=os.getenv("MINIO_ROOT_USER", "root"),
+    secret_key=os.getenv("MINIO_ROOT_PASSWORD"),
     secure=False,
 )
 
+_mysql_user = os.getenv("MYSQL_USER", "root")
+_mysql_password = os.getenv("MYSQL_ROOT_PASSWORD")
+_mysql_host = os.getenv("MYSQL_HOST", "mysql")
+_mysql_port = os.getenv("MYSQL_PORT", "3306")
+_mysql_db = os.getenv("MYSQL_DB", "data_warehouse_olist")
+
 engine = sql.create_engine(
-    "mysql+pymysql://root:password@mysql:3306/data_warehouse_olist?charset=utf8mb4"
+    f"mysql+pymysql://{_mysql_user}:{_mysql_password}@{_mysql_host}:{_mysql_port}/{_mysql_db}?charset=utf8mb4"
 )
 
 paths = {
